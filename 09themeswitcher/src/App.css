@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme {
+  /* You can add or change your custom theme colors right here! */
+  --color-card-dark: #0f172a; 
+  --color-card-light: #ffffff;
+}

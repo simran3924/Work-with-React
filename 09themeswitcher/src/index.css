@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+/* 1. Instruct the compilation engine to trace manual parent wrapper classes */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 2. Create an explicit fallback override theme sheet directly inside the core layer */
+@theme {
+  --color-card-bg-light: #ffffff;
+  --color-card-bg-dark: #1f2937;
+}
+
+/* 3. Global CSS cascade rules to catch elements if utility tags skip compiling */
+html.dark body {
+  background-color: #111827 !important;
+  color: #f3f4f6 !important;
+}
+
+html.dark .dark\:bg-gray-800 {
+  background-color: #1f2937 !important;
+}
+
+html.dark .dark\:text-white {
+  color: #ffffff !important;
+}

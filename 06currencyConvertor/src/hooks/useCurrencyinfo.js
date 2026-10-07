@@ -1,0 +1,17 @@
+import { useEffect, useState } from "react";
+
+function useCurrencyInfo(currency) {
+    const [data, setData] = useState({});
+
+    useEffect(() => {
+        // Correct link with backticks (``) embedding the dynamic currency parameter at the end
+        fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json`)
+            .then((res) => res.json())
+            .then((res) => setData(res[currency]))
+            .catch((err) => console.error("API Fetch Error: ", err));
+    }, [currency]);
+
+    return data;
+}
+
+export default useCurrencyInfo;
